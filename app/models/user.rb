@@ -4,6 +4,10 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :password, length: {minimum: 8, allow_nil: true}
 
+  has_many :friends,
+  foreign_key: :user_id,
+  class_name: "List"
+
   attr_reader :password
   after_initialize :ensure_session_token
 
@@ -30,5 +34,5 @@ class User < ApplicationRecord
     user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
   end
-  
+
 end
