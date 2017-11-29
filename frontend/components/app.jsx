@@ -1,8 +1,9 @@
 import React from 'react';
+import Navbar from './header_bar/header';
 
 const App = () => (
   <div>
-    <h1>TopKlout</h1>
+    <Navbar/>
   </div>
 )
 
